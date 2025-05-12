@@ -62,6 +62,7 @@
       display: flex;
       width: 100vw;
       height: 100vh;
+      margin-top: 60px;
     }
 
     .left, .right {
@@ -77,11 +78,30 @@
     }
 
     .left {
-      background: linear-gradient(to bottom right, #8ecae6, #bde0fe);
+      background: linear-gradient(to bottom right, #4e92bf, #6fa1d3);
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .right {
-      background: linear-gradient(to bottom left, #cdb4db, #a2d2ff);
+      background: linear-gradient(to bottom left, #9e7fa3, #7ea5d7);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .description {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.8;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -121,8 +141,14 @@
 
   <!-- Content -->
   <div class="split-screen">
-    <div class="left">I’m Analyst</div>
-    <div class="right">I’m Innovator</div>
+    <div class="left">
+      I’m Analyst
+      <p class="description">Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
+    </div>
+    <div class="right">
+      I’m Innovator
+      <p class="description">Creative problem-solver with a passion for bringing innovative solutions to complex challenges, turning ideas into reality.</p>
+    </div>
   </div>
 
 </body>
