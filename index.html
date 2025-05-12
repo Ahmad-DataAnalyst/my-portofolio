@@ -31,9 +31,13 @@
       z-index: 10;
     }
 
+    nav {
+      margin-left: auto;
+    }
+
     nav ul {
       display: flex;
-      gap: 25px;
+      gap: 35px;
       list-style: none;
     }
 
@@ -42,6 +46,11 @@
       text-decoration: none;
       font-size: 16px;
       font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00b4d8;
     }
 
     .social-links img {
@@ -60,22 +69,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2em;
+      font-size: 2.5em;
       font-weight: bold;
       color: white;
+      text-align: center;
+      padding: 20px;
     }
 
     .left {
-      background-color: #0077b6;
+      background: linear-gradient(to bottom right, #8ecae6, #bde0fe);
     }
 
     .right {
-      background-color: #023e8a;
+      background: linear-gradient(to bottom left, #cdb4db, #a2d2ff);
     }
 
-    .content {
-      margin-top: 60px;
-      height: calc(100vh - 60px);
+    @media (max-width: 768px) {
+      .split-screen {
+        flex-direction: column;
+      }
+
+      .left, .right {
+        height: 50vh;
+        font-size: 2em;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
     }
   </style>
 </head>
@@ -83,6 +104,11 @@
 
   <!-- Header -->
   <header>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      </a>
+    </div>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
@@ -91,11 +117,6 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-      </a>
-    </div>
   </header>
 
   <!-- Content -->
