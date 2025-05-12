@@ -14,8 +14,6 @@
     html, body {
       height: 100%;
       font-family: Arial, sans-serif;
-      overflow: hidden;
-      background-color: #121212;
     }
 
     header {
@@ -29,12 +27,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
+      z-index: 10;
     }
 
     nav ul {
       display: flex;
-      gap: 30px;
+      gap: 35px;
       list-style: none;
     }
 
@@ -55,139 +53,79 @@
       height: 24px;
     }
 
-    .section {
-      position: absolute;
-      top: 60px;
-      left: 100vw;
-      width: 100vw;
-      height: calc(100vh - 60px);
+    .split-screen {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-      opacity: 0;
-      transition: all 0.8s ease;
-    }
-
-    .section.active {
-      left: 0;
-      opacity: 1;
-    }
-
-    .home {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      background: linear-gradient(to right, #4f68c1, #9d65c9); /* Gradasi antara Analyst dan Innovator */
-      color: white;
       flex-direction: row;
-      gap: 20px;
-      padding: 0 20px;
+      width: 100%;
+      height: 100vh;
+      margin-top: 70px;
     }
 
-    .home .left, .home .right {
+    .left, .right {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-
-    .home .left h1 {
-      font-size: 3em;
-      font-weight: bold;
-    }
-
-    .home .left p {
-      font-size: 0.9em;
-      margin-top: 10px;
-      max-width: 300px;
+      color: white;
+      padding: 30px;
       text-align: center;
     }
 
-    .home .right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 15px;
+    .left {
+      background: linear-gradient(to bottom right, #3b82f6, #8b5cf6);
     }
 
-    .home .right h1 {
-      font-size: 3em;
-      font-family: 'Courier New', Courier, monospace;
+    .right {
+      background: linear-gradient(to bottom left, #6b21a8, #4f46e5);
     }
 
-    .home .right p {
-      font-size: 1em;
-      margin-top: 10px;
-      max-width: 500px;
-      text-align: left;
-      line-height: 1.5;
-      white-space: normal;
-      word-wrap: break-word;
-    }
-
-    .home .photo-container {
-      position: absolute;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-      z-index: 10;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .profile-pic {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      overflow: hidden;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .home .photo-container img {
-      width: 100%;
-      height: 100%;
       object-fit: cover;
-    }
-
-    .content-box {
-      background-color: #1e1e1e;
-      color: white;
-      padding: 30px;
-      border-radius: 12px;
-      max-width: 600px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .content-box h2 {
       margin-bottom: 20px;
-      font-size: 1.8em;
+      border: 4px solid #fff;
     }
 
-    .content-box p {
+    .title {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description {
       font-size: 1em;
-      line-height: 1.5;
+      max-width: 300px;
+      line-height: 1.5em;
+      color: #e0e0e0;
     }
 
     @media (max-width: 768px) {
-      .home .right p {
-       font-size: 0.9em;
-       max-width: 100%;
-       text-align: left;
-       line-height: 1.5;
+      .split-screen {
+        flex-direction: column;
+        height: auto;
       }
-      .home .photo-container {
-        width: 120px;
-        height: 120px;
+
+      .left, .right {
+        padding: 50px 20px;
+      }
+
+      .title {
+        font-size: 2em;
+      }
+
+      .description {
+        font-size: 0.95em;
+        max-width: 90%;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
@@ -196,80 +134,34 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#" data-target="home">Home</a></li>
-        <li><a href="#" data-target="about">About</a></li>
-        <li><a href="#" data-target="learn">Learn</a></li>
-        <li><a href="#" data-target="portfolio">Portfolio</a></li>
-        <li><a href="#" data-target="contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Sections -->
-  <div class="section home active" id="home">
+  <!-- Split Screen Section -->
+  <div class="split-screen">
+    <!-- Left Side -->
     <div class="left">
-      <!-- Your photo in the center, above text -->
-      <div class="photo-container">
-        <!-- Replace with your actual photo -->
-        <img src="https://via.placeholder.com/150" alt="Your Photo">
+      <!-- Sementara gunakan placeholder foto -->
+      <img src="https://via.placeholder.com/150" alt="Your Photo" class="profile-pic">
+      <div class="title">I’m Analyst</div>
+      <div class="description">
+        Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.
       </div>
-      <h1>I’m Analyst</h1>
-      <p>Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
     </div>
 
+    <!-- Right Side -->
     <div class="right">
-      <h1>Your Partner in Finding Solutions</h1>
-      <p>Creative thinker with a passion for transforming ideas into impactful, unconventional solutions across digital platforms.</p>
+      <div class="title">Your Partner in Finding Solutions</div>
+      <div class="description">
+        Creative thinker with a passion for transforming ideas into impactful,<br>unconventional solutions across digital platforms.
+      </div>
     </div>
   </div>
-
-  <div class="section" id="about">
-    <div class="content-box">
-      <h2>about.</h2>
-      <p>I'm an analyst based in Jakarta, Indonesia.
-Since 2014, I’ve enjoyed working with data—understanding its structure, aligning it with real workplace conditions, and identifying practical improvements that drive performance.
-I combine analytical skills with hands-on operational insight to deliver solutions that truly work in the field.</p>
-    </div>
-  </div>
-
-  <div class="section" id="learn">
-    <div class="content-box">
-      <h2>Learning Path</h2>
-      <p>Saya terus belajar teknologi seperti Python, Power BI, dan Automasi AI untuk meningkatkan produktivitas kerja.Saya juga mengambil Kursus di Revo U Materi Full-stack Data Analytics,Involves the comprehensive process of collecting, processing, analyzing, and visualizing data to drive decision-making. It encompasses both front-end and back-end skills, including data extraction, transformation, and loading (ETL), statistical analysis, machine learning, data visualization, and reporting. This holistic approach ensures end-to-end data solutions, from raw data to actionable insights, enabling businesses to leverage data effectively for strategic growth.</p>
-    </div>
-  </div>
-
-  <div class="section" id="portfolio">
-    <div class="content-box">
-      <h2>My Portfolio</h2>
-      <p>Proyek-proyek yang mencakup visualisasi data, chatbot, dashboard efisiensi listrik, dan lainnya.</p>
-    </div>
-  </div>
-
-  <div class="section" id="contact">
-    <div class="content-box">
-      <h2>Contact</h2>
-      <p>Hubungi saya melalui email atau LinkedIn untuk kerja sama profesional dan pengembangan ide bersama.</p>
-    </div>
-  </div>
-
-  <script>
-    const links = document.querySelectorAll("nav a");
-    const sections = document.querySelectorAll(".section");
-
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-target");
-
-        sections.forEach(section => {
-          section.classList.remove("active");
-        });
-
-        document.getElementById(target).classList.add("active");
-      });
-    });
-  </script>
 
 </body>
 </html>
