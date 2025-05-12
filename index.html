@@ -2,93 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad Assayuti Lubis - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ahmad's Portfolio</title>
   <style>
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
-    body, html {
-      height: 100%;
-      width: 100%;
-    }
-    .container {
+
+    header {
+      background-color: #333;
+      padding: 20px;
       display: flex;
-      height: 100vh;
+      justify-content: space-between;
+      align-items: center;
     }
-    .left, .right {
-      width: 50%;
-      padding: 40px;
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
       color: white;
-    }
-    .left {
-      background: #0f172a;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    .right {
-      background: #1e293b;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #94a3b8;
-    }
-    p {
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .contact {
-      margin-top: 40px;
-    }
-    .contact a {
-      color: #38bdf8;
       text-decoration: none;
-      display: block;
-      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      color: #f4f4f4;
+      transition: 0.3s;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icon {
+      width: 30px;
+      height: 30px;
+      transition: 0.3s;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+
+    main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Left Side -->
-    <div class="left">
-      <h1>I’m an Analyst</h1>
-      <h2>Turning data into visual insight</h2>
-      <p>
-        Saya senang menciptakan dashboard dan laporan yang menarik, dengan fokus pada penyampaian informasi yang efektif dan berdampak.
-      </p>
-      <div class="contact">
-        <a href="mailto:your.email@example.com">your.email@example.com</a>
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-      </div>
-    </div>
 
-    <!-- Right Side -->
-    <div class="right">
-      <h1>I’m an Innovator</h1>
-      <h2>Automating & solving with AI</h2>
-      <p>
-        Saya membangun automasi menggunakan Python dan Power Automate, serta menciptakan solusi analitik cerdas berbasis AI.
-      </p>
-      <div class="contact">
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-        <a href="#">Proyek Saya</a>
-      </div>
+  <!-- Header with Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="social-icon">
+      </a>
     </div>
-  </div>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <h1>Welcome to My Portfolio</h1>
+    <p>This is a simple portfolio page built with HTML and CSS.</p>
+  </main>
+
 </body>
 </html>
