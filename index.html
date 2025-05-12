@@ -120,9 +120,10 @@
     }
 
     .home .right p {
-      font-size: 0,95em;
+      font-size: 1em;
       margin-top: 10px;
-      max-width: 400px;
+      max-width: 500px;
+      text-align: left;
       line-height: 1.5;
       white-space: normal;
       word-wrap: break-word;
@@ -172,8 +173,11 @@
     }
 
     @media (max-width: 768px) {
-      .home {
-        flex-direction: column;
+      .home .right p {
+       font-size: 0.9em;
+       max-width: 100%;
+       text-align: left;
+       line-height: 1.5;
       }
       .home .photo-container {
         width: 120px;
