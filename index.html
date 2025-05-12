@@ -13,7 +13,8 @@
 
     html, body {
       height: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
     }
 
     header {
@@ -23,24 +24,45 @@
       width: 100%;
       background-color: #222;
       color: #fff;
-      padding: 15px 30px;
+      padding: 0 40px;
+      height: 65px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       z-index: 10;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-links a {
+      display: inline-block;
+      padding-right: 20px;
+    }
+
+    .social-links img {
+      width: 28px;
+      height: 28px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav ul {
       display: flex;
-      gap: 35px;
+      gap: 40px;
       list-style: none;
     }
 
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
 
@@ -48,17 +70,11 @@
       color: #00b4d8;
     }
 
-    .social-links img {
-      width: 24px;
-      height: 24px;
-    }
-
     .split-screen {
       display: flex;
-      flex-direction: row;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
-      margin-top: 70px;
+      padding-top: 65px;
     }
 
     .left, .right {
@@ -68,38 +84,56 @@
       align-items: center;
       justify-content: center;
       color: white;
-      padding: 30px;
       text-align: center;
+      padding: 40px 20px;
     }
 
     .left {
-      background: linear-gradient(to bottom right, #3b82f6, #8b5cf6);
+      background: linear-gradient(to bottom right, #4361ee, #7209b7);
     }
 
     .right {
-      background: linear-gradient(to bottom left, #6b21a8, #4f46e5);
+      background: linear-gradient(to bottom left, #3f37c9, #4895ef);
     }
 
     .profile-pic {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-      border: 4px solid #fff;
+      border: 3px solid white;
     }
 
     .title {
-      font-size: 2.5em;
+      font-size: 2.2em;
       font-weight: bold;
-      margin-bottom: 10px;
     }
 
-    .description {
-      font-size: 1em;
-      max-width: 300px;
-      line-height: 1.5em;
-      color: #e0e0e0;
+    .subtitle {
+      margin-top: 10px;
+      font-size: 0.9em;
+      max-width: 260px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .right .title {
+      font-family: 'Georgia', serif;
+      font-style: italic;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 20px 60px;
+      background-color: #f9f9f9;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #333;
     }
 
     @media (max-width: 768px) {
@@ -109,16 +143,27 @@
       }
 
       .left, .right {
-        padding: 50px 20px;
+        height: auto;
+        padding: 60px 20px;
       }
 
-      .title {
-        font-size: 2em;
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 20px;
+        align-items: center;
       }
 
-      .description {
-        font-size: 0.95em;
-        max-width: 90%;
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        align-items: center;
+      }
+
+      .social-links {
+        margin-bottom: 10px;
+        padding-right: 0;
       }
     }
   </style>
@@ -127,41 +172,54 @@
 
   <!-- Header -->
   <header>
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
-    </a>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#learn">Learn</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-  <!-- Split Screen Section -->
-  <div class="split-screen">
-    <!-- Left Side -->
-    <div class="left">
-      <!-- Sementara gunakan placeholder foto -->
-      <img src="https://via.placeholder.com/150" alt="Your Photo" class="profile-pic">
-      <div class="title">I’m Analyst</div>
-      <div class="description">
-        Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.
-      </div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+      </a>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Right Side -->
+  <!-- Hero Section -->
+  <div class="split-screen">
+    <div class="left">
+      <img src="https://via.placeholder.com/120" alt="Foto Anda" class="profile-pic">
+      <div class="title">I’m Analyst</div>
+      <div class="subtitle">Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</div>
+    </div>
     <div class="right">
       <div class="title">Your Partner in Finding Solutions</div>
-      <div class="description">
-        Creative thinker with a passion for transforming ideas into impactful,<br>unconventional solutions across digital platforms.
-      </div>
+      <div class="subtitle">Creative thinker with a passion for transforming ideas into impactful,<br>unconventional solutions across digital platforms.</div>
     </div>
   </div>
+
+  <!-- Sections -->
+  <section id="about">
+    <h2>About</h2>
+    <p style="text-align: center;">(Isi konten tentang Anda di sini)</p>
+  </section>
+
+  <section id="learn">
+    <h2>Learn</h2>
+    <p style="text-align: center;">(Isi konten pembelajaran, pelatihan, atau pengalaman belajar Anda)</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p style="text-align: center;">(Daftar atau gambar proyek yang pernah Anda kerjakan)</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align: center;">(Info kontak, email, atau form jika diinginkan)</p>
+  </section>
 
 </body>
 </html>
