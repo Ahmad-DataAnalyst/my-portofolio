@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ahmad's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -13,7 +14,7 @@
 
     html, body {
       height: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       overflow: hidden;
     }
 
@@ -62,50 +63,41 @@
       display: flex;
       width: 100vw;
       height: 100vh;
-      margin-top: 60px;
     }
 
     .left, .right {
       flex: 1;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 2.5em;
-      font-weight: bold;
       color: white;
       text-align: center;
       padding: 20px;
     }
 
     .left {
-      background: linear-gradient(to bottom right, #4e92bf, #6fa1d3);
-      font-family: 'Roboto', sans-serif;
-      font-weight: 500;
-      font-size: 2.5em;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      background: linear-gradient(to bottom right, #2c3e50, #6a82fb);
     }
 
     .right {
-      background: linear-gradient(to bottom left, #9e7fa3, #7ea5d7);
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 3em;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      background: linear-gradient(to bottom left, #4b0082, #8e44ad);
     }
 
-  .description {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 0.9em; /* Ukuran lebih kecil dari teks utama */
-  margin-top: 10px;
-  opacity: 0.85;
-  text-align: center;
-  line-height: 1.4;
-  max-width: 80%;
-}
+    .title {
+      font-size: 2.8em;
+      font-weight: 700;
+      font-family: 'Roboto', sans-serif;
+    }
 
+    .description {
+      font-size: 0.75em;
+      font-weight: 300;
+      max-width: 80%;
+      margin-top: 10px;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
 
     @media (max-width: 768px) {
       .split-screen {
@@ -114,7 +106,6 @@
 
       .left, .right {
         height: 50vh;
-        font-size: 2em;
       }
 
       nav ul {
@@ -142,15 +133,19 @@
     </nav>
   </header>
 
-  <!-- Content -->
+  <!-- Split Screen Content -->
   <div class="split-screen">
     <div class="left">
-      I’m Analyst
-      <p class="description">Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
+      <div class="title">I’m Analyst</div>
+      <div class="description">
+        Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.
+      </div>
     </div>
     <div class="right">
-      I’m Innovator
-      <p class="description">Creative problem-solver with a passion for bringing innovative solutions to complex challenges, turning ideas into reality.</p>
+      <div class="title" style="font-family: 'Playfair Display', serif;">I’m Innovator</div>
+      <div class="description">
+        Creative thinker exploring unconventional solutions and blending logic with imagination to build future-focused innovations.
+      </div>
     </div>
   </div>
 
