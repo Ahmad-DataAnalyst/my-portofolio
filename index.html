@@ -13,8 +13,9 @@
 
     html, body {
       height: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background-color: #121212;
     }
 
     header {
@@ -24,45 +25,24 @@
       width: 100%;
       background-color: #222;
       color: #fff;
-      padding: 0 40px;
-      height: 65px;
+      padding: 15px 30px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      z-index: 10;
-    }
-
-    .social-links {
-      display: flex;
       align-items: center;
-    }
-
-    .social-links a {
-      display: inline-block;
-      padding-right: 20px;
-    }
-
-    .social-links img {
-      width: 28px;
-      height: 28px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
+      z-index: 100;
     }
 
     nav ul {
       display: flex;
-      gap: 40px;
+      gap: 30px;
       list-style: none;
     }
 
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: bold;
       transition: color 0.3s ease;
     }
 
@@ -70,96 +50,138 @@
       color: #00b4d8;
     }
 
-    .split-screen {
-      display: flex;
-      width: 100vw;
-      height: 100vh;
-      padding-top: 65px;
+    .social-links img {
+      width: 24px;
+      height: 24px;
     }
 
-    .left, .right {
+    .section {
+      position: absolute;
+      top: 60px;
+      left: 100vw;
+      width: 100vw;
+      height: calc(100vh - 60px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+
+    .section.active {
+      left: 0;
+      opacity: 1;
+    }
+
+    .home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: linear-gradient(to right, #4f68c1, #9d65c9); /* Gradasi antara Analyst dan Innovator */
+      color: white;
+      flex-direction: row;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .home .left, .home .right {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
     }
 
-    .left {
-      background: linear-gradient(to bottom right, #4361ee, #7209b7);
-    }
-
-    .right {
-      background: linear-gradient(to bottom left, #3f37c9, #4895ef);
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid white;
-    }
-
-    .title {
-      font-size: 2.2em;
+    .home .left h1 {
+      font-size: 3em;
       font-weight: bold;
     }
 
-    .subtitle {
-      margin-top: 10px;
+    .home .left p {
       font-size: 0.9em;
-      max-width: 260px;
-      line-height: 1.5;
-      opacity: 0.9;
-    }
-
-    .right .title {
-      font-family: 'Georgia', serif;
-      font-style: italic;
-    }
-
-    section {
-      min-height: 100vh;
-      padding: 100px 20px 60px;
-      background-color: #f9f9f9;
-    }
-
-    section h2 {
+      margin-top: 10px;
+      max-width: 300px;
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2em;
-      color: #333;
     }
 
- @media (max-width: 768px) {
-  nav ul {
-    gap: 20px;
-  }
+    .home .right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 15px;
+    }
 
-  header {
-    padding: 10px 20px;
-  }
+    .home .right h1 {
+      font-size: 3em;
+      font-family: 'Courier New', Courier, monospace;
+    }
 
-  .social-links {
-    padding-right: 10px;
-  }
+    .home .right p {
+      font-size: 1em;
+      margin-top: 10px;
+      max-width: 300px;
+      text-align: left;
+    }
 
-  .social-links img {
-    width: 24px;
-    height: 24px;
-  }
-}
+    .home .photo-container {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 
+    .home .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-box {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .content-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .content-box p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .home {
+        flex-direction: column;
+      }
+      .home .photo-container {
+        width: 120px;
+        height: 120px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
@@ -168,47 +190,78 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#learn">Learn</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" data-target="home">Home</a></li>
+        <li><a href="#" data-target="about">About</a></li>
+        <li><a href="#" data-target="learn">Learn</a></li>
+        <li><a href="#" data-target="portfolio">Portfolio</a></li>
+        <li><a href="#" data-target="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <div class="split-screen">
+  <!-- Sections -->
+  <div class="section home active" id="home">
     <div class="left">
-      <img src="https://via.placeholder.com/120" alt="Foto Anda" class="profile-pic">
-      <div class="title">I’m Analyst</div>
-      <div class="subtitle">Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</div>
+      <!-- Your photo in the center, above text -->
+      <div class="photo-container">
+        <!-- Replace with your actual photo -->
+        <img src="https://via.placeholder.com/150" alt="Your Photo">
+      </div>
+      <h1>I’m Analyst</h1>
+      <p>Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
     </div>
+
     <div class="right">
-      <div class="title">Your Partner in Finding Solutions</div>
-      <div class="subtitle">Creative thinker with a passion for transforming ideas into impactful,<br>unconventional solutions across digital platforms.</div>
+      <h1>Your Partner in Finding Solutions</h1>
+      <p>Creative thinker with a passion for transforming ideas into impactful, unconventional solutions across digital platforms.</p>
     </div>
   </div>
 
-  <!-- Sections -->
-  <section id="about">
-    <h2>About</h2>
-    <p style="text-align: center;">(Isi konten tentang Anda di sini)</p>
-  </section>
+  <div class="section" id="about">
+    <div class="content-box">
+      <h2>About Me</h2>
+      <p>Saya adalah seseorang yang menyukai analisis, pengembangan data, dan eksplorasi ide-ide baru untuk efisiensi dan efektivitas kerja.</p>
+    </div>
+  </div>
 
-  <section id="learn">
-    <h2>Learn</h2>
-    <p style="text-align: center;">(Isi konten pembelajaran, pelatihan, atau pengalaman belajar Anda)</p>
-  </section>
+  <div class="section" id="learn">
+    <div class="content-box">
+      <h2>Learning Path</h2>
+      <p>Saya terus belajar teknologi seperti Python, Power BI, dan Automasi AI untuk meningkatkan produktivitas kerja.</p>
+    </div>
+  </div>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p style="text-align: center;">(Daftar atau gambar proyek yang pernah Anda kerjakan)</p>
-  </section>
+  <div class="section" id="portfolio">
+    <div class="content-box">
+      <h2>My Portfolio</h2>
+      <p>Proyek-proyek yang mencakup visualisasi data, chatbot, dashboard efisiensi listrik, dan lainnya.</p>
+    </div>
+  </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p style="text-align: center;">(Info kontak, email, atau form jika diinginkan)</p>
-  </section>
+  <div class="section" id="contact">
+    <div class="content-box">
+      <h2>Contact</h2>
+      <p>Hubungi saya melalui email atau LinkedIn untuk kerja sama profesional dan pengembangan ide bersama.</p>
+    </div>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".section");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+
+        sections.forEach(section => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
