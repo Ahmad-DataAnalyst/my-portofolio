@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ahmad's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,12 +11,11 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background-color: #121212;
     }
 
     header {
@@ -31,16 +29,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
-    }
-
-    nav {
-      margin-left: auto;
+      z-index: 100;
     }
 
     nav ul {
       display: flex;
-      gap: 35px;
+      gap: 30px;
       list-style: none;
     }
 
@@ -61,79 +55,93 @@
       height: 24px;
     }
 
-    .split-screen {
-      display: flex;
+    .section {
+      position: absolute;
+      top: 60px;
+      left: 100vw;
       width: 100vw;
-      height: 100vh;
-      margin-top: 70px;
+      height: calc(100vh - 60px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      opacity: 0;
+      transition: all 0.8s ease;
     }
 
-    .left, .right {
+    .section.active {
+      left: 0;
+      opacity: 1;
+    }
+
+    .home {
+      background: linear-gradient(to bottom right, #4f68c1, #9d65c9);
+      color: white;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .home .left, .home .right {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 20px;
     }
 
-    .left {
-      background: linear-gradient(to bottom right, #4263eb, #6a4c93);
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .right {
-      background: linear-gradient(to bottom left, #5f0f40, #9a031e);
-      font-family: 'Playfair Display', serif;
-    }
-
-    .role-title {
-      font-size: 2.5em;
+    .home .left h1 {
+      font-size: 3em;
       font-weight: bold;
     }
 
-    .role-desc {
-      margin-top: 10px;
+    .home .left p {
       font-size: 0.9em;
+      margin-top: 10px;
       max-width: 300px;
-      opacity: 0.85;
+      text-align: center;
     }
 
-    section {
-      padding: 100px 30px;
+    .home .right h1 {
+      font-size: 3em;
+      font-family: 'Courier New', Courier, monospace;
     }
 
-    section h2 {
-      font-size: 2em;
-      margin-bottom: 15px;
+    .home .right p {
+      font-size: 0.9em;
+      margin-top: 10px;
+      max-width: 300px;
+      text-align: center;
     }
 
-    #about { background-color: #f5f5f5; }
-    #learn { background-color: #e0e0e0; }
-    #portfolio { background-color: #d0d0d0; }
-    #contact { background-color: #c0c0c0; }
+    .content-box {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .content-box h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .content-box p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
 
     @media (max-width: 768px) {
-      .split-screen {
+      .home {
         flex-direction: column;
-        height: auto;
-      }
-
-      .left, .right {
-        height: 50vh;
-      }
-
-      nav ul {
-        gap: 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank">
@@ -142,49 +150,72 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#learn">Learn</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" data-target="home">Home</a></li>
+        <li><a href="#" data-target="about">About</a></li>
+        <li><a href="#" data-target="learn">Learn</a></li>
+        <li><a href="#" data-target="portfolio">Portfolio</a></li>
+        <li><a href="#" data-target="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <div class="split-screen">
+  <!-- Sections -->
+  <div class="section home active" id="home">
     <div class="left">
-      <div class="role-title">I’m Analyst</div>
-      <div class="role-desc">Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</div>
+      <h1>I’m Analyst</h1>
+      <p>Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
     </div>
     <div class="right">
-      <div class="role-title">I’m Innovator</div>
-      <div class="role-desc">Creative thinker crafting unexpected yet effective solutions for digital transformation and operational excellence.</div>
+      <h1>I’m Innovator</h1>
+      <p>Creative thinker with a passion for transforming ideas into impactful, unconventional solutions across digital platforms.</p>
     </div>
   </div>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About</h2>
-    <p>Saya adalah seorang data analyst yang fokus pada insight dan pengambilan keputusan berbasis data.</p>
-  </section>
+  <div class="section" id="about">
+    <div class="content-box">
+      <h2>About Me</h2>
+      <p>Saya adalah seseorang yang menyukai analisis, pengembangan data, dan eksplorasi ide-ide baru untuk efisiensi dan efektivitas kerja.</p>
+    </div>
+  </div>
 
-  <!-- Learn Section -->
-  <section id="learn">
-    <h2>Learn</h2>
-    <p>Saya terus belajar dan berkembang dalam dunia data, teknologi, dan inovasi digital.</p>
-  </section>
+  <div class="section" id="learn">
+    <div class="content-box">
+      <h2>Learning Path</h2>
+      <p>Saya terus belajar teknologi seperti Python, Power BI, dan Automasi AI untuk meningkatkan produktivitas kerja.</p>
+    </div>
+  </div>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>Berikut adalah beberapa proyek dan pencapaian saya yang relevan.</p>
-  </section>
+  <div class="section" id="portfolio">
+    <div class="content-box">
+      <h2>My Portfolio</h2>
+      <p>Proyek-proyek yang mencakup visualisasi data, chatbot, dashboard efisiensi listrik, dan lainnya.</p>
+    </div>
+  </div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Hubungi saya melalui email atau LinkedIn untuk kolaborasi.</p>
-  </section>
+  <div class="section" id="contact">
+    <div class="content-box">
+      <h2>Contact</h2>
+      <p>Hubungi saya melalui email atau LinkedIn untuk kerja sama profesional dan pengembangan ide bersama.</p>
+    </div>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll(".section");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-target");
+
+        sections.forEach(section => {
+          section.classList.remove("active");
+        });
+
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
 
 </body>
 </html>
