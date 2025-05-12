@@ -83,6 +83,7 @@
       color: white;
       flex-direction: row;
       gap: 20px;
+      padding: 0 20px;
     }
 
     .home .left, .home .right {
@@ -105,36 +106,47 @@
       text-align: center;
     }
 
+    .home .right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 15px;
+    }
+
     .home .right h1 {
       font-size: 3em;
       font-family: 'Courier New', Courier, monospace;
     }
 
     .home .right p {
-      font-size: 0.9em;
+      font-size: 1em;
       margin-top: 10px;
       max-width: 300px;
-      text-align: center;
+      text-align: left;
     }
 
     .home .photo-container {
       position: absolute;
       top: 50%;
+      left: 20px;
       transform: translateY(-50%);
       z-index: 10;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 20%;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       overflow: hidden;
       background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .home .photo-container img {
       width: 100%;
-      height: auto;
-      border-radius: 50%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .content-box {
@@ -161,6 +173,10 @@
       .home {
         flex-direction: column;
       }
+      .home .photo-container {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
 </head>
@@ -186,14 +202,13 @@
   <!-- Sections -->
   <div class="section home active" id="home">
     <div class="left">
+      <!-- Your photo in the center -->
+      <div class="photo-container">
+        <!-- Replace with your photo when available -->
+        <img src="https://via.placeholder.com/150" alt="Your Photo">
+      </div>
       <h1>I’m Analyst</h1>
       <p>Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
-    </div>
-    
-    <!-- Your photo in the center -->
-    <div class="photo-container">
-      <!-- Replace with your photo when available -->
-      <img src="https://via.placeholder.com/150" alt="Your Photo">
     </div>
 
     <div class="right">
