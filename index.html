@@ -75,7 +75,11 @@
     }
 
     .home {
-      background: linear-gradient(to bottom right, #4f68c1, #9d65c9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: linear-gradient(to right, #4f68c1, #9d65c9); /* Gradasi antara Analyst dan Innovator */
       color: white;
       flex-direction: row;
       gap: 20px;
@@ -111,6 +115,26 @@
       margin-top: 10px;
       max-width: 300px;
       text-align: center;
+    }
+
+    .home .photo-container {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20%;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .home .photo-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
     }
 
     .content-box {
@@ -165,8 +189,15 @@
       <h1>I’m Analyst</h1>
       <p>Data-driven professional specializing in uncovering insights and trends to guide business decisions and optimizations.</p>
     </div>
+    
+    <!-- Your photo in the center -->
+    <div class="photo-container">
+      <!-- Replace with your photo when available -->
+      <img src="https://via.placeholder.com/150" alt="Your Photo">
+    </div>
+
     <div class="right">
-      <h1>I’m Innovator</h1>
+      <h1>Your Partner in Finding Solutions</h1>
       <p>Creative thinker with a passion for transforming ideas into impactful, unconventional solutions across digital platforms.</p>
     </div>
   </div>
